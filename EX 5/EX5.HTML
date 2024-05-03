@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centered Video with Poster</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+        height: 100vh;
+    }
+    video {
+        max-width: 100%;
+        max-height: 100%;
+    }
+</style>
+</head>
+<body>
+
+<video autoplay loop poster="rain.jpg">
+    <source src="numb.mp4" type="video/mp4">
+</video>
+
+</body>
+</html>

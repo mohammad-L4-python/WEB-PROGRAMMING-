@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petrol Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="number"] {
+            width: 100px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        input[type="number"]:focus {
+            border-color: #007bff;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Petrol Calculator</h2>
+        <form id="petrolForm">
+            
+            <label for="petrolCost">Cost per liter of petrol:</label><br>
+            <input type="number" id="petrolCost" name="petrolCost" step="0.01" min="0.01" value="1.72"><br>
+            
+            <label for="litresPurchased">Litres purchased:</label><br>
+            <input type="number" id="litresPurchased" name="litresPurchased" step="0.01" min="0" value="0"><br>
+            
+            <input type="submit" value="Calculate">
+        </form>
+        
+        <p id="totalCost"></p>
+    </div>
+
+    <script>
+       
+        function calculateTotalCost() {
+            
+            const petrolCost = parseFloat(document.getElementById("petrolCost").value);
+            const litresPurchased = parseFloat(document.getElementById("litresPurchased").value);
+           
+            const totalCost = petrolCost * litresPurchased;
+           
+            document.getElementById("totalCost").innerText = `Total cost: $${totalCost.toFixed(2)}`;
+        }
+
+        
+        document.getElementById("petrolForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            calculateTotalCost(); 
+        });
+    </script>
+</body>
+</html>
